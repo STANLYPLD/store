@@ -3,5 +3,7 @@ RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^test/(.*)/?$	index.php?test=$1	[NC,L]
+RewriteRule ^test/(.*)/?$	      index.php?test=$1   	    [NC,L]
+RewriteRule ^category/(.*)/?$	  index.php?cat=$1	        [NC,L]
+RewriteRule ^product/(.*)/?$	  index.php?product=$1	    [NC,L]
 

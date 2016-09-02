@@ -1,12 +1,48 @@
 <?php
 
+class Logic {
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "";
+    private $db_name = "store";
+    
+    private $db = false;
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db_name = "store";
 
-$conn = new mysqli($servername, $username, $password, $db_name);
+    public function __construct(){
+        $this->db = new mysqli($this->servername, $this->username, $this->password, $this->db_name);
+        if(!$this->db) die('Cannot connect to database');
+    }
+
+    public function __destruct(){
+        if($this->db) $this->db->close(); 
+    }
+
+    
+
+    function select($sql, $params = array()){
+        $out = array();
+        $st = $this->db->prepare($sql);
+        
+        foreach($params as $param){
+            if(is_string($param)) $st->bind_param('s', $param);
+            elseif (is_numeric($param)) $st->bind_param('d', $param);
+            else $st->bind_param('b', $param);
+        }
+        
+        $st->execute();
+        $result = $st->get_result();
+        
+        while ($row = $result->fetch_assoc()){
+            $out[] = $row;
+        }
+        
+        return $out;
+    }
+}// end class
+
+
+/*
 
 if (!$conn) {
     die("Connection failed: VGZ " . mysqli_connect_error());
@@ -28,18 +64,4 @@ while($row = $res->fetch_assoc()) {
 
 if($conn) $conn->close();
 
-
-class AAA{
-    public $a = 'ja, ja';
-    
-    function __construct($a){
-        $this->a = $a;
-    }
-    
-    function oi(){
-        return 'oioi';
-    }
-}
-
-$aaa = new AAA('kjhgf');
-echo $aaa->a;
+*/
