@@ -1,7 +1,7 @@
 <?php
 require_once 'libs/Smarty.class.php';
 require_once 'logic/logic.php';
-
+    
 $smarty = new Smarty;
 $logic  = new Logic;
 
@@ -17,8 +17,7 @@ if(isset($_GET['product'])){
     array($_GET['product']));    
     $smarty->assign('PRODUCT', $data);
 }
-
-
+                
 
 $smarty->assign('CATEGORIES', $logic->select("select id_cat,url,name from category order by name"));
 $smarty->display('home.tpl');
