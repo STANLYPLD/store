@@ -1,6 +1,6 @@
 <?php
 
-class Logic {
+class DB {
     private $servername = "localhost";
     private $username = "root";
     private $password = "";
@@ -36,6 +36,8 @@ class Logic {
         while ($row = $result->fetch_assoc()){
             $out[] = $row;
         }
+        
+        $st->close();
         
         return $out;
     }

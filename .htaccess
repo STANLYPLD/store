@@ -6,4 +6,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^test/(.*)/?$	      index.php?test=$1   	    [NC,L]
 RewriteRule ^category/(.*)/?$	  index.php?cat=$1	        [NC,L]
 RewriteRule ^product/(.*)/?$	  index.php?product=$1	    [NC,L]
-
+RewriteRule ^client-login/?$	  index.php?clLogin=1	    [NC,L]
+RewriteRule ^admin-login/?$	  index.php?adminlogin=yes	    [NC,L]
