@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2016-09-03 16:19:38
+<?php /* Smarty version Smarty-3.1.18, created on 2016-09-05 16:23:16
          compiled from ".\templates\home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3265257cadbe18523a4-36012506%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '97d060df136bc68287855ad0037b446ebb85b73d' => 
     array (
       0 => '.\\templates\\home.tpl',
-      1 => 1472912366,
+      1 => 1473085388,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_57cadbe18c4946_43027530',
   'variables' => 
   array (
+    'ERR' => 0,
     'CATEGORIES' => 0,
   ),
   'has_nocache_code' => false,
@@ -35,29 +36,29 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <body>
 
 
-
  <div id="wrapper">
+ <?php if (isset($_SESSION['admin'])&&$_SESSION['admin']=='555') {?>
+    <?php echo $_smarty_tpl->getSubTemplate ('adminMenu.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+ <?php }?>
 
                 <!-- login -->
 
-                <a href="#" data-toggle="modal" data-target="#login-modal">Login/Register</a>
+   
+    
+        <div class="loginmodal-container">
+            <h1><?php if (isset($_smarty_tpl->tpl_vars['ERR']->value)) {?><?php echo $_smarty_tpl->tpl_vars['ERR']->value;?>
+<?php } else { ?>Login to Your Account<?php }?></h1>
+            <form method="post" action="/client-login/">
+                <input type="text" name="mail" placeholder="E-mail address">
+                <input type="password" name="pass" placeholder="Password">
+                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+            <form metod='post' action="/register/">
+                <input type="submit" name="register" class="login loginmodal-submit" value="Register">
 
-                <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                          <div class="modal-dialog">
-                                <div class="loginmodal-container">
-                                    <h1>Login to Your Account</h1><br>
-                                  <form method="post" action="/client-login/">
-                                    <input type="text" name="user" placeholder="Username">
-                                    <input type="password" name="pass" placeholder="Password">
-                                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                                  </form>
-
-                                  <div class="login-help">
-                                    <a href="#">Register</a> - <a href="#">Forgot Password</a>
-                                  </div>
-                                </div>
-                            </div>
-                          </div>
+            </form>
+        </div>
 
               
         

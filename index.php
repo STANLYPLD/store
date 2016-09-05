@@ -22,11 +22,20 @@ if(isset($_GET['product'])){
 }
 
 if(isset($_GET['clLogin'])){
-    print_r($_POST);
+    if(!empty($_POST)){
+      $res = $db->select("select mail, pass from clients where mail= ? and pass= ? ",
+        array($_POST['mail'], $_POST['pass']));
+        
+        if(!empty($res)){
+            if($_POST['mail'] == $res[0]['mail'] && $_POST['pass'] == $res[0]['pass']){
+                $_SESSION['client'] = 111;
+            }else $smarty->assign('ERR', 'Login incorrect.');
+        }else $smarty->assign('ERR', 'Login incorrect.');
+    } 
 }
+
 if(isset($_GET['adminlogin'])){
     if(!empty($_POST)){
-        print_r($_POST);
         $res = $db->select("select user, pass from users where user= ? and pass= ? ",
         array($_POST['user'], $_POST['pass']));
         
@@ -41,5 +50,16 @@ if(isset($_GET['adminlogin'])){
 
 $smarty->assign('CATEGORIES', $db->select("select id_cat,url,name from category order by name"));
 $smarty->display('home.tpl');
+
+print_r($_SESSION);
+
+if(isset($_GET['register']))    
+    $smarty->display('regform.tpl');
+    {
+        if(!empty($_POST)){
+          $res = $db->insert(insert clients ('name', 'mail', 'phone', 'pass') values ('name'= $_POST['name'] , 'mail'= $_POST['mail'] , 'phone'= $_POST['phone'] , 'pass'= $_POST['pass'] );
+        }else $smarty->assign('ERR'Registration failed.);
+    }else $smarty->assign('ERR'Registration failed.);
+    
 
 ?>
