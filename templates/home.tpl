@@ -10,30 +10,33 @@
     <body>
 
 
-
  <div id="wrapper">
+ {if isset($smarty.session.admin) && $smarty.session.admin == '555'}
+    {include file='adminMenu.tpl'}
+ {/if}
 
                 <!-- login -->
 
-                <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+   
+    
+        <div class="loginmodal-container">
+            <h1>{if isset($ERR)}{$ERR}{else}Login to Your Account{/if}</h1>
+            <form method="post" action="/client-login/">
+                <input type="text" name="mail" placeholder="E-mail address">
+                <input type="password" name="pass" placeholder="Password">
+                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+        <div class="register">
+           
+           <form metod='post' action="/register/">
+           <input type="submit" name="register" class="register" value="Register">
+            </form>
+            
+            </div>
+        </div>
 
-                <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                          <div class="modal-dialog">
-                                <div class="loginmodal-container">
-                                    <h1>Login to Your Account</h1><br>
-                                  <form>
-                                    <input type="text" name="user" placeholder="Username">
-                                    <input type="password" name="pass" placeholder="Password">
-                                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                                  </form>
-
-                                  <div class="login-help">
-                                    <a href="#">Register</a> - <a href="#">Forgot Password</a>
-                                  </div>
-                                </div>
-                            </div>
-                          </div>
-
+              
+        
         <!-- Sidebar -->
         <div class="col-sm-2 sidenav">
             <ul class="sidebar-nav">
@@ -49,6 +52,7 @@
         <div class="col-sm-10 content">
             {if isset($smarty.get.cat)}         {include file='catproducts.tpl'}        {/if}
             {if isset($smarty.get.product)}     {include file='product.tpl'}            {/if}
+            {if isset($smarty.get.adminlogin)}     {include file='adminlogin.tpl'}            {/if}
         </div>
 
     </div>

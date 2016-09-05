@@ -1,29 +1,30 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2016-09-02 17:57:20
+<?php /* Smarty version Smarty-3.1.18, created on 2016-09-05 20:36:24
          compiled from "./templates/home.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:173326318554182f37ef3e70-97896772%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:480358857cda2faa63c23-42195793%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '62ef71fa9bffee4b2e45ea97bf20c2caac4cf263' => 
     array (
       0 => './templates/home.tpl',
-      1 => 1472828230,
+      1 => 1473096978,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '173326318554182f37ef3e70-97896772',
+  'nocache_hash' => '480358857cda2faa63c23-42195793',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_54182f3807dd93_40455123',
+  'unifunc' => 'content_57cda2fab08556_87702038',
   'variables' => 
   array (
+    'ERR' => 0,
     'CATEGORIES' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_54182f3807dd93_40455123')) {function content_54182f3807dd93_40455123($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_57cda2fab08556_87702038')) {function content_57cda2fab08556_87702038($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
     <head>
         <base href="/">
@@ -35,30 +36,35 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <body>
 
 
-
  <div id="wrapper">
+ <?php if (isset($_SESSION['admin'])&&$_SESSION['admin']=='555') {?>
+    <?php echo $_smarty_tpl->getSubTemplate ('adminMenu.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
-<!-- login -->
+ <?php }?>
 
-<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                <!-- login -->
 
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    	  <div class="modal-dialog">
-				<div class="loginmodal-container">
-					<h1>Login to Your Account</h1><br>
-				  <form>
-					<input type="text" name="user" placeholder="Username">
-					<input type="password" name="pass" placeholder="Password">
-					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
-				  </form>
-					
-				  <div class="login-help">
-					<a href="#">Register</a> - <a href="#">Forgot Password</a>
-				  </div>
-				</div>
-			</div>
-		  </div>
+   
+    
+        <div class="loginmodal-container">
+            <h1><?php if (isset($_smarty_tpl->tpl_vars['ERR']->value)) {?><?php echo $_smarty_tpl->tpl_vars['ERR']->value;?>
+<?php } else { ?>Login to Your Account<?php }?></h1>
+            <form method="post" action="/client-login/">
+                <input type="text" name="mail" placeholder="E-mail address">
+                <input type="password" name="pass" placeholder="Password">
+                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+            </form>
+        <div class="register">
+           
+           <form metod='post' action="/register/">
+           <input type="submit" name="register" class="register" value="Register">
+            </form>
+            
+            </div>
+        </div>
 
+              
+        
         <!-- Sidebar -->
         <div class="col-sm-2 sidenav">
             <ul class="sidebar-nav">
@@ -100,6 +106,8 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['kk']['last']       = ($_smar
             <?php if (isset($_GET['cat'])) {?>         <?php echo $_smarty_tpl->getSubTemplate ('catproducts.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
         <?php }?>
             <?php if (isset($_GET['product'])) {?>     <?php echo $_smarty_tpl->getSubTemplate ('product.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+            <?php }?>
+            <?php if (isset($_GET['adminlogin'])) {?>     <?php echo $_smarty_tpl->getSubTemplate ('adminlogin.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
             <?php }?>
         </div>
 
