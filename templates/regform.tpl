@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <form id='register' action='register' method='post'
-=======
-<form id='register' action='register.php' method='post'
->>>>>>> da7664a2b57a01b384924b4397b552db072cb635
     accept-charset='UTF-8'>
 <fieldset >
 <legend>Register</legend>
@@ -16,6 +12,7 @@
 <label for='password' >Password*:</label>
 <input type='password' name='pass' id='password' maxlength="50" />
 <input type='submit' name='Submit' value='Submit' />
+<h1>{if isset($ERR2)}{$ERR2}{/if}</h1>
  
 </fieldset>
 </form>

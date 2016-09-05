@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2016-09-05 20:36:24
+<?php /* Smarty version Smarty-3.1.18, created on 2016-09-05 22:14:05
          compiled from "./templates/home.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:480358857cda2faa63c23-42195793%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:13810208057cdb8e2906996-33443735%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '62ef71fa9bffee4b2e45ea97bf20c2caac4cf263' => 
     array (
       0 => './templates/home.tpl',
-      1 => 1473096978,
+      1 => 1473102843,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '480358857cda2faa63c23-42195793',
+  'nocache_hash' => '13810208057cdb8e2906996-33443735',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_57cda2fab08556_87702038',
+  'unifunc' => 'content_57cdb8e2977e93_36382401',
   'variables' => 
   array (
     'ERR' => 0,
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_57cda2fab08556_87702038')) {function content_57cda2fab08556_87702038($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_57cdb8e2977e93_36382401')) {function content_57cdb8e2977e93_36382401($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
     <head>
         <base href="/">
@@ -54,6 +54,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                 <input type="password" name="pass" placeholder="Password">
                 <input type="submit" name="login" class="login loginmodal-submit" value="Login">
             </form>
+
         <div class="register">
            
            <form metod='post' action="/register/">
@@ -61,10 +62,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
             </form>
             
             </div>
-        </div>
 
               
-        
         <!-- Sidebar -->
         <div class="col-sm-2 sidenav">
             <ul class="sidebar-nav">
