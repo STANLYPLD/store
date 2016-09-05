@@ -8,4 +8,8 @@ RewriteRule ^category/(.*)/?$	  index.php?cat=$1	        [NC,L]
 RewriteRule ^product/(.*)/?$	  index.php?product=$1	    [NC,L]
 RewriteRule ^client-login/?$	  index.php?clLogin=1	    [NC,L]
 RewriteRule ^admin-login/?$	  index.php?adminlogin=yes	    [NC,L]
+<<<<<<< HEAD
 RewriteRule ^register/?$	  index.php?register=$1	    [NC,L]
+=======
+RewriteRule ^register/?$	  index.php?register=yes	    [NC,L]
+>>>>>>> da7664a2b57a01b384924b4397b552db072cb635

@@ -53,6 +53,7 @@ $smarty->display('home.tpl');
 
 print_r($_SESSION);
 
+<<<<<<< HEAD
 if(isset($_GET['register'])){    
     $smarty->display('regform.tpl');
     
@@ -60,6 +61,15 @@ if(isset($_GET['register'])){
           $res = $db->insert("insert into clients 'name', 'mail', 'phone', 'pass' where 'name'= ? , 'mail'= ? 'phone'= ? , 'pass'=? ", array($_POST['name'] , $_POST['mail'] , $_POST['phone'] , $_POST['pass']));
         }else $smarty->assign('ERR', 'Registration failed.');
     }else $smarty->assign('ERR', 'Registration failed.');
+=======
+if(isset($_GET['register']))    
+    $smarty->display('regform.tpl');
+    {
+        if(!empty($_POST)){
+          $res = $db->insert(insert clients ('name', 'mail', 'phone', 'pass') values ('name'= $_POST['name'] , 'mail'= $_POST['mail'] , 'phone'= $_POST['phone'] , 'pass'= $_POST['pass'] );
+        }else $smarty->assign('ERR'Registration failed.);
+    }else $smarty->assign('ERR'Registration failed.);
+>>>>>>> da7664a2b57a01b384924b4397b552db072cb635
     
 
 ?>

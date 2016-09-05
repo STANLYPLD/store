@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <form id='register' action='register' method='post'
+=======
+<form id='register' action='register.php' method='post'
+>>>>>>> da7664a2b57a01b384924b4397b552db072cb635
     accept-charset='UTF-8'>
 <fieldset >
 <legend>Register</legend>

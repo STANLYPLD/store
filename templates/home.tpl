@@ -26,6 +26,7 @@
                 <input type="password" name="pass" placeholder="Password">
                 <input type="submit" name="login" class="login loginmodal-submit" value="Login">
             </form>
+<<<<<<< HEAD
         <div class="register">
            
            <form metod='post' action="/register/">
@@ -33,6 +34,12 @@
             </form>
             
             </div>
+=======
+            <form metod='post' action="/register/">
+                <input type="submit" name="register" class="login loginmodal-submit" value="Register">
+
+            </form>
+>>>>>>> da7664a2b57a01b384924b4397b552db072cb635
         </div>
 
               
