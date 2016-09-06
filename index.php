@@ -56,21 +56,17 @@ print_r($_SESSION);
 if(isset($_GET['register'])) 
 {   
     $smarty->display('regform.tpl');
-
-}
-/*
-if(empty($_POST['name'] && $_POST['mail'] && $_POST['phone'] && $_POST['pass'])
-{
-    die('Registration failed. Please field all fields.');
-}
-*/ 
-if(!empty($_POST['name'] && $_POST['mail'] && $_POST['phone'] && $_POST['pass']))
-{
-   $res = $db->insert("insert into clients (name, mail, phone, pass) values ( ? , ? , ? , ?) ", array($_POST['name'], $_POST['mail'], $_POST['phone'], $_POST['pass']));
-}
-            
+    if(!empty($_POST['name'] && $_POST['mail'] && $_POST['phone'] && $_POST['pass'] ? $_POST['name'] && $_POST['mail'] && $_POST['phone'] && $_POST['pass'] : NULL))
+        $res = $db->insert("insert into clients (name, mail, phone, pass) values ( ? , ? , ? , ?) ", array($_POST['name'], $_POST['mail'], $_POST['phone'], $_POST['pass']));
+     
+    if(!empty($res)){
+        if($_POST['name'] == $res[0]['name'] && $_POST['mail'] == $res[0]['mail'] && $_POST['phone'] == $res[0]['phone'] && $_POST['pass'] == $res[0]['pass']){
+        $smarty->assign('YES', 'Registration successful.');
+        
+        }
+       
+     }
     else $smarty->assign('ERR2', 'Registration failed.');
-
-
-
+}
+    
 ?>

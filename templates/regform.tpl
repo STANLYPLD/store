@@ -12,7 +12,7 @@
 <label for='password' >Password*:</label>
 <input type='password' name='pass' id='password' maxlength="50" />
 <input type='submit' name='Submit' value='Submit' />
-<h1>{if isset($ERR2)}{$ERR2}{/if}</h1>
- 
+<!--  <h1>{if isset($ERR2)}{$ERR2}{else}Registration Successful.{/if}</h1>  -->
+
 </fieldset>
 </form>
